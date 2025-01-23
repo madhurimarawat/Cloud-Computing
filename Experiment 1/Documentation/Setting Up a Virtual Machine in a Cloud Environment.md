@@ -49,6 +49,56 @@ LocalStack is a local AWS cloud stack that provides a seamless development and t
 
 ### **Prerequisites**
 
+### **Docker Setup**
+
+The error may also indicate that **Docker** is not installed or configured correctly on the system. Since LocalStack relies on Docker to simulate AWS services locally, follow these steps to resolve the issue:
+
+### 1. **Install Docker on the System**
+
+- Download and install Docker Desktop for Windows from the [official Docker website](https://www.docker.com/products/docker-desktop/).
+- During installation, ensure the following options are selected:
+  - "Install required Windows components for WSL 2" (if using WSL 2).
+  - Restart the machine if prompted to complete the installation.
+
+---
+
+### 2. **Verify Docker Installation**
+
+- Open a command prompt or PowerShell and run the following command to check if Docker is installed:
+  ```bash
+  docker --version
+  ```
+- If Docker is successfully installed, a version number will appear, for example: `Docker version 24.0.2, build abcdef`.
+
+---
+
+### 3. **Start Docker Desktop**
+
+- Launch Docker Desktop and wait until it indicates that "Docker is running."
+
+---
+
+### 4. **Enable WSL 2 Integration (If Required)**
+
+- If using Windows Subsystem for Linux (WSL), enable WSL 2 by following these steps:
+  1. Open Docker Desktop settings.
+  2. Navigate to **General** and check the option "Use the WSL 2-based engine."
+  3. Apply the changes and restart Docker Desktop.
+
+---
+
+### 5. **Retry Running LocalStack**
+
+- Once Docker is running, execute the following command in the terminal:
+  ```bash
+  localstack start
+  ```
+- LocalStack should now start successfully.
+
+---
+
+### LocalStack Installation
+
 1. **Install LocalStack**:
 
    - LocalStack can be installed via pip:
@@ -215,8 +265,12 @@ Collecting localstack-core (from localstack)
   Using cached localstack_core-4.0.3-py3-none-any.whl.metadata (5.4 kB)
 Collecting localstack-ext==4.0.3 (from localstack)
   Using cached localstack_ext-4.0.3.tar.gz (6.2 MB)
-ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: 'C:\\Users\\rawat\\AppData\\Local\\Temp\\pip-install-q450br39\\localstack-ext_771d2730449b461b8323becea3af2ce5\\localstack/pro/core/services/lambda_/invocation/endpoint_injection/java/SdkV2DisableCertificateValidation/src/main/java/cloud/localstack/HttpClientTransformer.java'
-HINT: This error might have occurred since this system does not have Windows Long Path support enabled. You can find information on how to enable this at https://pip.pypa.io/warnings/enable-long-paths
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory:
+'C:\\Users\\rawat\\AppData\\Local\\Temp\\pip-install-q450br39\\localstack-ext_771d2730449b461b8323becea
+3af2ce5\\localstack/pro/core/services/lambda_/invocation/endpoint_injection/java/SdkV2DisableCertificateValidation/
+src/main/java/cloud/localstack/HttpClientTransformer.java'
+HINT: This error might have occurred since this system does not have Windows Long Path support enabled.
+You can find information on how to enable this at https://pip.pypa.io/warnings/enable-long-paths
 ```
 
 The error indicates that **Windows Long Path Support** is not enabled, which is necessary because some files in the `localstack` installation exceed the default path length limit of 260 characters on Windows.
@@ -280,72 +334,6 @@ pip install localstack
   ```
 
 - **Check Python Compatibility**: Ensure that the Python version is compatible with the `localstack` version being installed.
-
----
-
-### **Docker Setup**
-
-The error may also indicate that **Docker** is not installed or configured correctly on the system. Since LocalStack relies on Docker to simulate AWS services locally, follow these steps to resolve the issue:
-
-1. **Install Docker**: Make sure Docker is installed and running. Users can download it from [here](https://www.docker.com/products/docker-desktop).
-
-2. **Verify Docker Installation**: Run the following command to ensure Docker is properly installed and active:
-
-   ```bash
-   docker --version
-   ```
-
-3. **Start Docker**: If Docker is not running, start it manually and ensure it is ready for use.
-
-By following these steps, users should be able to resolve the installation issues and successfully set up LocalStack for simulating EC2 instances.
-
----
-
-### 1. **Install Docker on the System**
-
-- Download and install Docker Desktop for Windows from the [official Docker website](https://www.docker.com/products/docker-desktop/).
-- During installation, ensure the following options are selected:
-  - "Install required Windows components for WSL 2" (if using WSL 2).
-  - Restart the machine if prompted to complete the installation.
-
----
-
-### 2. **Verify Docker Installation**
-
-- Open a command prompt or PowerShell and run the following command to check if Docker is installed:
-  ```bash
-  docker --version
-  ```
-- If Docker is successfully installed, a version number will appear, for example: `Docker version 24.0.2, build abcdef`.
-
----
-
-### 3. **Start Docker Desktop**
-
-- Launch Docker Desktop and wait until it indicates that "Docker is running."
-
----
-
-### 4. **Enable WSL 2 Integration (If Required)**
-
-- If using Windows Subsystem for Linux (WSL), enable WSL 2 by following these steps:
-  1. Open Docker Desktop settings.
-  2. Navigate to **General** and check the option "Use the WSL 2-based engine."
-  3. Apply the changes and restart Docker Desktop.
-
----
-
-### 5. **Retry Running LocalStack**
-
-- Once Docker is running, execute the following command in the terminal:
-  ```bash
-  localstack start
-  ```
-- LocalStack should now start successfully.
-
----
-
-If further issues arise, the details can be shared for more assistance.
 
 ---
 
@@ -479,7 +467,7 @@ If Docker Desktop keeps signing out automatically, several common causes and fix
 
 ---
 
-### **2. Enable Trusted Root Certificates**
+### **1. Enable Trusted Root Certificates**
 
 - Docker Desktop may fail to authenticate if the required root certificates are missing or untrusted.
 - **Solution**:
@@ -492,7 +480,7 @@ If Docker Desktop keeps signing out automatically, several common causes and fix
 
 ---
 
-### **3. Clear Docker Credentials**
+### **2. Clear Docker Credentials**
 
 - Cached credentials might be causing the sign-out issues.
 - **Solution**:
@@ -510,6 +498,12 @@ If Docker is not running, it should automatically troubleshoot and restart itsel
 ### **LocalStack Container Image Download Process**
 
 The following output indicates that **LocalStack is attempting to pull the container image `localstack/localstack`** to run in Docker mode, which suggests that the setup is working up to this point. Here's what's happening:
+
+```bash
+C:\Users\rawat>docker images
+REPOSITORY TAG IMAGE ID CREATED SIZE
+Pulling container image localstack/localstack
+```
 
 ---
 
