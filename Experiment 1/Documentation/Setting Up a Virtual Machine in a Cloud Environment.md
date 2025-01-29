@@ -51,7 +51,7 @@ LocalStack is a local AWS cloud stack that provides a seamless development and t
 
 ### **Docker Setup**
 
-The error may also indicate that **Docker** is not installed or configured correctly on the system. Since LocalStack relies on Docker to simulate AWS services locally, follow these steps to resolve the issue:
+Since LocalStack uses Docker to simulate AWS services locally, follow these steps to install it:
 
 ### 1. **Install Docker on the System**
 
@@ -80,20 +80,10 @@ The error may also indicate that **Docker** is not installed or configured corre
 
 ### 4. **Enable WSL 2 Integration (If Required)**
 
-- If using Windows Subsystem for Linux (WSL), enable WSL 2 by following these steps:
-  1. Open Docker Desktop settings.
-  2. Navigate to **General** and check the option "Use the WSL 2-based engine."
-  3. Apply the changes and restart Docker Desktop.
-
----
-
-### 5. **Retry Running LocalStack**
-
-- Once Docker is running, execute the following command in the terminal:
-  ```bash
-  localstack start
-  ```
-- LocalStack should now start successfully.
+- If Docker is not running on Windows, enable WSL 2 by following these steps:
+  1. Open **Docker Desktop** settings.
+  2. Go to **General** and check the option **"Use the WSL 2-based engine."**
+  3. Apply the changes and restart **Docker Desktop**.
 
 ---
 
@@ -251,6 +241,8 @@ This setup is ideal for students looking to interact with a simulated cloud envi
 
 ---
 
+## Troubleshooting
+
 ### **Error Encountered:**
 
 ```bash
@@ -374,6 +366,8 @@ http://localhost:4566
 ```
 
 ---
+
+## Starting Services
 
 ### 1. **Ensure the Service is Running**
 
