@@ -55,6 +55,13 @@ Cloud-Computing/
 |   │   ├── Explanation of methods and key observations from Experiment 1.
 │   ├── Output/ 📊
 │   │   └── Contains the results and analysis of Experiment 1.
+├── Experiment 2/
+│   ├── Codes/ 💻
+│   │   └── Contains the web app code in flask and docker files.
+│   ├── Documentation/ 📝
+│   │   ├── Detailed documentation explaining the methodology and analysis for Experiment 2.
+│   ├── Output/ 📊
+│   │   └── Contains the results and analysis of Experiment 2.
 .....
 ```
 
