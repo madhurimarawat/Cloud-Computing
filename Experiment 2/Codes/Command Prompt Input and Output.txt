@@ -1,0 +1,184 @@
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id rbx2kdpyxl --parent-id regpu0mm3f --path-part "flaskapp"
+-------------------------------------------------------
+|                   CreateResource                    |
++-------------+--------------+------------+-----------+
+|     id      |  parentId    |   path     | pathPart  |
++-------------+--------------+------------+-----------+
+|  bsw1umubix |  regpu0mm3f  |  /flaskapp |  flaskapp |
++-------------+--------------+------------+-----------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id rbx2kdpyxl --resource-id bsw1umubix --http-method GET --authorization-type NONE
+-------------------------------------------------------
+|                      PutMethod                      |
++----------------+---------------------+--------------+
+| apiKeyRequired |  authorizationType  | httpMethod   |
++----------------+---------------------+--------------+
+|  False         |  NONE               |  GET         |
++----------------+---------------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id rbx2kdpyxl --resource-id bsw1umubix --http-method GET --integration-http-method GET --type HTTP_PROXY --uri http://localhost:5000/
+---------------------------------------------------
+|                 PutIntegration                  |
++----------------------+--------------------------+
+|  cacheNamespace      |  bsw1umubix              |
+|  connectionType      |  INTERNET                |
+|  httpMethod          |  GET                     |
+|  passthroughBehavior |  WHEN_NO_MATCH           |
+|  timeoutInMillis     |  29000                   |
+|  type                |  HTTP_PROXY              |
+|  uri                 |  http://localhost:5000/  |
++----------------------+--------------------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id rbx2kdpyxl --stage-name prod
+--------------------------------
+|       CreateDeployment       |
++---------------+--------------+
+|  createdDate  |     id       |
++---------------+--------------+
+|  1738825514.0 |  fpmrktu41t  |
++---------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id rbx2kdpyxl --parent-id regpu0mm3f --path-part "flaskapp"
+-------------------------------------------------------
+|                   CreateResource                    |
++-------------+--------------+------------+-----------+
+|     id      |  parentId    |   path     | pathPart  |
++-------------+--------------+------------+-----------+
+|  bsw1umubix |  regpu0mm3f  |  /flaskapp |  flaskapp |
++-------------+--------------+------------+-----------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id rbx2kdpyxl --resource-id bsw1umubix --http-method GET --authorization-type NONE
+-------------------------------------------------------
+|                      PutMethod                      |
++----------------+---------------------+--------------+
+| apiKeyRequired |  authorizationType  | httpMethod   |
++----------------+---------------------+--------------+
+|  False         |  NONE               |  GET         |
++----------------+---------------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id rbx2kdpyxl --resource-id bsw1umubix --http-method GET --integration-http-method GET --type HTTP_PROXY --uri http://localhost:5000/
+---------------------------------------------------
+|                 PutIntegration                  |
++----------------------+--------------------------+
+|  cacheNamespace      |  bsw1umubix              |
+|  connectionType      |  INTERNET                |
+|  httpMethod          |  GET                     |
+|  passthroughBehavior |  WHEN_NO_MATCH           |
+|  timeoutInMillis     |  29000                   |
+|  type                |  HTTP_PROXY              |
+|  uri                 |  http://localhost:5000/  |
++----------------------+--------------------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id rbx2kdpyxl --stage-name prod
+--------------------------------
+|       CreateDeployment       |
++---------------+--------------+
+|  createdDate  |     id       |
++---------------+--------------+
+|  1738825514.0 |  fpmrktu41t  |
++---------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway get-stage --rest-api-id rbx2kdpyxl --stage-name prod
+------------------------------------------
+|                GetStage                |
++----------------------+-----------------+
+|  cacheClusterEnabled |  False          |
+|  cacheClusterStatus  |  NOT_AVAILABLE  |
+|  deploymentId        |  fpmrktu41t     |
+|  description         |                 |
+|  stageName           |  prod           |
+|  tracingEnabled      |  False          |
++----------------------+-----------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>curl http://localhost:5000/instance-stats
+{"Instance ID":"i-6c9d5e3fa4c23d261","Instance Type":"t2.micro","Public IP":"54.214.36.25","Region":"us-east-1","State":"running"}
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway get-resources --rest-api-id rbx2kdpyxl
+-----------------------------------------------------------
+|                      GetResources                       |
++---------------------------------------------------------+
+||                         items                         ||
+|+------------------------+------------------------------+|
+||  id                    |  regpu0mm3f                  ||
+||  parentId              |                              ||
+||  path                  |  /                           ||
+||  pathPart              |                              ||
+|+------------------------+------------------------------+|
+||                         items                         ||
+|+------------------------+------------------------------+|
+||  id                    |  bsw1umubix                  ||
+||  parentId              |  regpu0mm3f                  ||
+||  path                  |  /flaskapp                   ||
+||  pathPart              |  flaskapp                    ||
+|+------------------------+------------------------------+|
+|||                   resourceMethods                   |||
+||+-----------------------------------------------------+||
+||||                        GET                        ||||
+|||+-----------------------------------+---------------+|||
+||||  apiKeyRequired                   |  False        ||||
+||||  authorizationType                |  NONE         ||||
+||||  httpMethod                       |  GET          ||||
+|||+-----------------------------------+---------------+|||
+|||||                methodIntegration                |||||
+||||+----------------------+--------------------------+||||
+|||||  cacheNamespace      |  bsw1umubix              |||||
+|||||  connectionType      |  INTERNET                |||||
+|||||  httpMethod          |  GET                     |||||
+|||||  passthroughBehavior |  WHEN_NO_MATCH           |||||
+|||||  timeoutInMillis     |  29000                   |||||
+|||||  type                |  HTTP_PROXY              |||||
+|||||  uri                 |  http://localhost:5000/  |||||
+||||+----------------------+--------------------------+||||
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id rbx2kdpyxl --parent-id bsw1umubix --path-part "instance-stats"
+----------------------------------------------------------------------------
+|                              CreateResource                              |
++------------+-------------+----------------------------+------------------+
+|     id     |  parentId   |           path             |    pathPart      |
++------------+-------------+----------------------------+------------------+
+|  glsyl3hnnj|  bsw1umubix |  /flaskapp/instance-stats  |  instance-stats  |
++------------+-------------+----------------------------+------------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id rbx2kdpyxl --resource-id glsyl3hnnj --http-method GET --authorization-type NONE
+-------------------------------------------------------
+|                      PutMethod                      |
++----------------+---------------------+--------------+
+| apiKeyRequired |  authorizationType  | httpMethod   |
++----------------+---------------------+--------------+
+|  False         |  NONE               |  GET         |
++----------------+---------------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id rbx2kdpyxl --resource-id glsyl3hnnj --http-method GET --integration-http-method GET --type HTTP_PROXY --uri http://localhost:5000/instance-stats
+-----------------------------------------------------------------
+|                        PutIntegration                         |
++----------------------+----------------------------------------+
+|  cacheNamespace      |  glsyl3hnnj                            |
+|  connectionType      |  INTERNET                              |
+|  httpMethod          |  GET                                   |
+|  passthroughBehavior |  WHEN_NO_MATCH                         |
+|  timeoutInMillis     |  29000                                 |
+|  type                |  HTTP_PROXY                            |
+|  uri                 |  http://localhost:5000/instance-stats  |
++----------------------+----------------------------------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id rbx2kdpyxl --stage-name prod
+--------------------------------
+|       CreateDeployment       |
++---------------+--------------+
+|  createdDate  |     id       |
++---------------+--------------+
+|  1738826210.0 |  8bku2hvst8  |
++---------------+--------------+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 2\Codes>aws --endpoint-url=http://localhost:4566 apigateway get-integration --rest-api-id rbx2kdpyxl --resource-id glsyl3hnnj --http-method GET
+-----------------------------------------------------------------
+|                        GetIntegration                         |
++----------------------+----------------------------------------+
+|  cacheNamespace      |  glsyl3hnnj                            |
+|  connectionType      |  INTERNET                              |
+|  httpMethod          |  GET                                   |
+|  passthroughBehavior |  WHEN_NO_MATCH                         |
+|  timeoutInMillis     |  29000                                 |
+|  type                |  HTTP_PROXY                            |
+|  uri                 |  http://localhost:5000/instance-stats  |
++----------------------+----------------------------------------+
