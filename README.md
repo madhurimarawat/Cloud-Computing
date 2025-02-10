@@ -16,6 +16,12 @@ LocalStack is a fully functional, local testing environment for AWS services. It
 ### 3. [Docker](https://docs.docker.com/)
 Docker is a containerization platform that allows developers to build, share, and run applications in isolated environments called containers. It ensures consistent environments across development, testing, and production by packaging the application and its dependencies together.
 
+### 4. [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)  
+Boto3 is the official AWS SDK for Python, enabling developers to interact with AWS services programmatically. It provides a high-level, easy-to-use interface for managing AWS resources like S3, EC2, DynamoDB, and more.  
+
+### 5. [Flask](https://flask.palletsprojects.com/)  
+Flask is a lightweight and flexible Python web framework designed for building web applications and APIs. It follows a minimalistic approach, providing essential tools while allowing developers to add extensions as needed.
+
 ---
 
 ## Directory Structure 📂
@@ -80,6 +86,12 @@ Cloud-Computing/
 In this experiment, students will learn to understand the basics of cloud 
 computing by setting up and configuring a virtual machine on a cloud platform 
 such as AWS, Google Cloud, or Microsoft Azure or localstack. 
+
+### 2. [Deploying a Web Application on a Cloud Server](https://github.com/madhurimarawat/Cloud-Computing/tree/main/Experiment%202)
+
+This experiment enables students to deploy a basic web application on a cloud 
+server using services like AWS EC2, where they will practice deploying 
+applications on the cloud infrastructure. 
 
 ---
 
