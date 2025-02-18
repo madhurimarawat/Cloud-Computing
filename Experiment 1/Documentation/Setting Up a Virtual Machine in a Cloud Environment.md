@@ -8,6 +8,26 @@
 
 ---
 
+## Virtual Machine
+
+A **virtual machine (VM)** is a software-based emulation of a physical computer that runs an operating system and applications just like a physical machine. It operates in an isolated environment, using allocated resources such as CPU, memory, and storage from the host system. VMs are widely used in cloud computing to create scalable, on-demand instances, allowing users to deploy and manage applications without needing dedicated hardware. They provide flexibility, cost efficiency, and security by enabling multiple VMs to run on a single physical server, each operating independently with its own configurations and software stack.
+
+- **Definition**: A virtual machine (VM) is a software-based emulation of a physical computer.
+- **Isolation**: Operates in a secure, isolated environment with dedicated resources.
+- **Resource Allocation**: Uses allocated CPU, memory, and storage from the host system.
+- **Cloud Computing**: Enables scalable, on-demand instances without dedicated hardware.
+- **Flexibility**: Supports different operating systems and configurations on the same physical server.
+- **Cost Efficiency**: Reduces hardware costs by running multiple VMs on a single server.
+- **Security**: Provides sandboxed environments, preventing conflicts between VMs.
+- **Use Cases**: Commonly used for development, testing, deployment, and cloud-based applications.
+
+<br>
+
+<p align="center">
+<img src="https://res.cloudinary.com/lwgatsby/f_auto/www/uploads/2020/08/vm2.png" height="300px"></p>
+
+---
+
 ## LocalStack
 
 LocalStack is a local AWS cloud stack that provides a seamless development and testing environment. Here's a concise breakdown of its features and benefits:
@@ -693,7 +713,7 @@ aws ec2 run-instances --image-id ami-a2678d778fc6 --count 1 --instance-type t2.m
 1. **List Existing Buckets:**
 
    ```bash
-   C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
+   aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
    ```
 
    - **Purpose:** This command is used to list the existing S3 buckets in your LocalStack environment, running at `localhost:4566`.
@@ -702,7 +722,8 @@ aws ec2 run-instances --image-id ami-a2678d778fc6 --count 1 --instance-type t2.m
 2. **Create a New S3 Bucket:**
 
    ```bash
-   C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 mb s3://my-test-bucket
+   aws --endpoint-url=http://localhost:4566 --region
+   us-east-1 s3 mb s3://my-test-bucket
    ```
 
    - **Purpose:** This command creates a new S3 bucket named `my-test-bucket` in the LocalStack environment.
@@ -710,7 +731,7 @@ aws ec2 run-instances --image-id ami-a2678d778fc6 --count 1 --instance-type t2.m
 
 3. **List Buckets Again:**
    ```bash
-   C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
+   aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
    ```
    - **Purpose:** This command lists the existing S3 buckets again, this time after creating the new bucket.
    - **Output:**
