@@ -4,64 +4,72 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
 <p align="center">
   <!-- Repository Size -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing">
-    <img src="https://img.shields.io/github/repo-size/madhurimarawat/Cloud-Computing?color=%2384C7A5&label=Repo%20Size&labelColor=%2369AF8D&style=for-the-badge&logo=github" alt="Repo Size">
+    <img src="https://img.shields.io/github/repo-size/madhurimarawat/Cloud-Computing?color=%23A8D5BA&label=Repo%20Size&labelColor=%23A1CBB4&style=for-the-badge&logo=github" alt="Repo Size">
   </a>
 
   <!-- Stars -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/stargazers">
-    <img src="https://img.shields.io/github/stars/madhurimarawat/Cloud-Computing?color=%23E39DAE&label=Stars&labelColor=%23D27E92&style=for-the-badge&logo=star" alt="GitHub Stars">
+    <img src="https://img.shields.io/github/stars/madhurimarawat/Cloud-Computing?color=%23F7CAC9&label=Stars&labelColor=%23F1A7B8&style=for-the-badge&logo=star" alt="GitHub Stars">
   </a>
 
   <!-- Forks -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/network/members">
-    <img src="https://img.shields.io/github/forks/madhurimarawat/Cloud-Computing?color=%23A1BFD3&label=Forks&labelColor=%238BA8C2&style=for-the-badge&logo=git" alt="GitHub Forks">
+    <img src="https://img.shields.io/github/forks/madhurimarawat/Cloud-Computing?color=%23D6E2E9&label=Forks&labelColor=%23B9D3E2&style=for-the-badge&logo=git" alt="GitHub Forks">
   </a>
 
   <!-- Issues (Open + Closed) -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/issues">
-    <img src="https://img.shields.io/github/issues/madhurimarawat/Cloud-Computing?color=%23E5C07B&label=Open%20Issues&labelColor=%23D1AC6A&style=for-the-badge&logo=bug" alt="GitHub Issues">
+    <img src="https://img.shields.io/github/issues/madhurimarawat/Cloud-Computing?color=%23FFF5C3&label=Open%20Issues&labelColor=%23F4E3A2&style=for-the-badge&logo=bug" alt="GitHub Issues">
   </a>
   <a href="https://github.com/madhurimarawat/Cloud-Computing/issues?q=is%3Aissue+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-closed/madhurimarawat/Cloud-Computing?color=%2384C7A5&label=Closed%20Issues&labelColor=%2369AF8D&style=for-the-badge&logo=bug" alt="Closed Issues">
+    <img src="https://img.shields.io/github/issues-closed/madhurimarawat/Cloud-Computing?color=%23FFD6A5&label=Closed%20Issues&labelColor=%23F9C294&style=for-the-badge&logo=bug" alt="Closed Issues">
   </a>
 
   <!-- Pull Requests (Open + Closed) -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/pulls">
-    <img src="https://img.shields.io/github/issues-pr/madhurimarawat/Cloud-Computing?color=%23E39DAE&label=Open%20PRs&labelColor=%23D27E92&style=for-the-badge&logo=git" alt="Open Pull Requests">
+    <img src="https://img.shields.io/github/issues-pr/madhurimarawat/Cloud-Computing?color=%23FFD6A5&label=Open%20PRs&labelColor=%23F9C294&style=for-the-badge&logo=git" alt="Open Pull Requests">
   </a>
   <a href="https://github.com/madhurimarawat/Cloud-Computing/pulls?q=is%3Apr+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-pr-closed/madhurimarawat/Cloud-Computing?color=%23A1BFD3&label=Closed%20PRs&labelColor=%238BA8C2&style=for-the-badge&logo=git" alt="Closed Pull Requests">
+    <img src="https://img.shields.io/github/issues-pr-closed/madhurimarawat/Cloud-Computing?color=%23D6E2E9&label=Closed%20PRs&labelColor=%23B9D3E2&style=for-the-badge&logo=git" alt="Closed Pull Requests">
   </a>
 
   <!-- Discussions -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/discussions">
-    <img src="https://img.shields.io/github/discussions/madhurimarawat/Cloud-Computing?color=%23E5C07B&label=Discussions&labelColor=%23D1AC6A&style=for-the-badge&logo=discourse" alt="GitHub Discussions">
+    <img src="https://img.shields.io/github/discussions/madhurimarawat/Cloud-Computing?color=%23FFF5C3&label=Discussions&labelColor=%23F4E3A2&style=for-the-badge&logo=discourse" alt="GitHub Discussions">
   </a>
 
   <!-- Contributors -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/madhurimarawat/Cloud-Computing?color=%2384C7A5&label=Contributors&labelColor=%2369AF8D&style=for-the-badge&logo=github" alt="GitHub Contributors">
+    <img src="https://img.shields.io/github/contributors/madhurimarawat/Cloud-Computing?color=%231FA19C&label=Contributors&labelColor=%23197A76&style=for-the-badge&logo=github" alt="GitHub Contributors">
   </a>
 
   <!-- Language Breakdown -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing">
-    <img src="https://img.shields.io/github/languages/top/madhurimarawat/Cloud-Computing?color=%2391B8D9&label=Top%20Language&labelColor=%2379A3C8&style=for-the-badge&logo=python" alt="Top Language">
+    <img src="https://img.shields.io/github/languages/top/madhurimarawat/Cloud-Computing?color=%23A8D5BA&label=Top%20Language&labelColor=%23A1CBB4&style=for-the-badge&logo=python" alt="Top Language">
   </a>
 
   <!-- License -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/madhurimarawat/Cloud-Computing?color=%23C39BD3&label=License&labelColor=%23B283C4&style=for-the-badge&logo=open-source-initiative" alt="License">
+    <img src="https://img.shields.io/github/license/madhurimarawat/Cloud-Computing?color=%23F39C12&label=License&labelColor=%23D68910&style=for-the-badge&logo=open-source-initiative" alt="License">
   </a>
 
   <!-- Last Commit -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/commits/main">
-    <img src="https://img.shields.io/github/last-commit/madhurimarawat/Cloud-Computing?color=%238FBC8F&label=Last%20Commit&labelColor=%2378A678&style=for-the-badge&logo=github" alt="Last Commit">
+    <img src="https://img.shields.io/github/last-commit/madhurimarawat/Cloud-Computing?color=%23A8D5BA&label=Last%20Commit&labelColor=%23A1CBB4&style=for-the-badge&logo=github" alt="Last Commit">
+  </a>
+
+  <!-- Repository Age -->
+  <a href="https://github.com/madhurimarawat/Cloud-Computing">
+  <img src="https://img.shields.io/badge/Repo%20Age-1%20Month-%23A8D5BA?style=for-the-badge&logo=github" alt="Repository Age">
+</a>
+
+  <!-- Watchers -->
+  <a href="https://github.com/madhurimarawat/Cloud-Computing/watchers">
+    <img src="https://img.shields.io/github/watchers/madhurimarawat/Cloud-Computing?color=%23FFD6A5&label=Watchers&labelColor=%23F9C294&style=for-the-badge&logo=github" alt="GitHub Watchers">
   </a>
 
   <!-- Visitors Count -->
-  <a href="https://github.com/madhurimarawat/Cloud-Computing">
-    <img src="https://komarev.com/ghpvc/?username=madhurimarawat&color=E39DAE&style=for-the-badge&label=Visitors" alt="Visitors">
-  </a>
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/madhurimarawat/Cloud-Computing&count_bg=%23FF6B8B&title_bg=%235A9DF9&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=true" alt="Visitors">
 </p>
 
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--oJGxPKFU--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vwztvoekwz1abcc684e2.jpeg" width= "100%" height= "500px">
