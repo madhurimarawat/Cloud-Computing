@@ -17,7 +17,10 @@ A **VPC** is a customizable virtual network within the AWS cloud. It allows you 
 - Facilitates secure, private communication between instances.
 
 <p align="center">
-<img src="https://www.buurst.com/wp-content/uploads/2022/08/What-is-an-AWS-VPC-or-a-Virtual-Private-Cloud.png" height="300px">
+<img src="https://www.buurst.com/wp-content/uploads/2022/08/What-is-an-AWS-VPC-or-a-Virtual-Private-Cloud.png" height="200px">
+</p>
+
+<p align="center">
 <img src="https://imgv2-2-f.scribdassets.com/img/document/588730760/original/869e5dc504/1661522201?v=1" height="300px">
 </p>
 
@@ -65,9 +68,10 @@ LocalStack simulates AWS services locally, allowing you to test cloud configurat
 
 <p align="center">
 <img src="https://res-static.hc-cdn.cn/cloudbu-site/intl/en-us/vpc1013/product_vpc_advantage_illustration4.png" height="300px">
+</p>
 
+<p align="center">
 <img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2021/05/24/illustration-1.png" height="300px">
-
 </p>
 
 ---
