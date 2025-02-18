@@ -141,7 +141,9 @@ Cloud-Computing/
 ### Explanation of Folders:
 
 - **Codes Folder (💻):**  
-  Contains the source code used for the experiment. If the experiment involves running scripts or programs, the corresponding code files go here.
+  This folder contains the source code for the experiment. It includes all the necessary code files, scripts, and programs required to run the experiment. Additionally, it holds detailed explanations of the command prompt inputs and outputs:
+  - **Command Prompt Input and Output Explanation (MD & PDF)**: Provides an explanation of the inputs and outputs for all commands used in the experiment.
+  - **Command Prompt Input and Output Logs (TXT)**: Contains the actual input commands and their corresponding outputs in text format for reference.
 
 - **Dataset Folder (📁):**  
   This folder stores the dataset used in an experiment. If a dataset is involved (like a `.csv`, `.json`, or any data file), it will be placed here.
