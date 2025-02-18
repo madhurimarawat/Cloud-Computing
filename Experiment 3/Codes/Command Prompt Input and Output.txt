@@ -1,0 +1,37 @@
+C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
+
+C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 mb s3://my-test-bucket
+make_bucket: my-test-bucket
+
+C:\Users\rawat>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls
+2025-02-18 10:55:33 my-test-bucket
+
+C:\Users\rawat>cd "C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items"
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 cp . s3://my-test-bucket/ --recursive
+upload: .\Sample_Housing_CSV_File.csv to s3://my-test-bucket/Sample_Housing_CSV_File.csv
+upload: .\storage_service_offered_by_amazon.png to s3://my-test-bucket/storage_service_offered_by_amazon.png
+upload: .\Data_Transfer_Amazon.jpg to s3://my-test-bucket/Data_Transfer_Amazon.jpg
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 ls s3://my-test-bucket/
+2025-02-18 11:23:34      89553 Data_Transfer_Amazon.jpg
+2025-02-18 11:23:34      29981 Sample_Housing_CSV_File.csv
+2025-02-18 11:23:34      47575 storage_service_offered_by_amazon.png
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 cp s3://my-test-bucket/Sample_Housing_CSV_File.csv .
+download: s3://my-test-bucket/Sample_Housing_CSV_File.csv to .\Sample_Housing_CSV_File.csv
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>type Sample_Housing_CSV_File.csv
+price,area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus
+13300000,7420,4,2,3,yes,no,no,no,yes,2,yes,furnished
+12250000,8960,4,4,4,yes,no,no,no,yes,3,no,furnished
+12250000,9960,3,2,2,yes,no,yes,no,no,2,yes,semi-furnished
+12215000,7500,4,2,2,yes,no,yes,no,yes,3,yes,furnished
+11410000,7420,4,1,2,yes,yes,yes,no,yes,2,no,furnished
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>start Data_Transfer_Amazon.jpg
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>start storage_service_offered_by_amazon.png
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 3\Items>aws --endpoint-url=http://localhost:4566 --region us-east-1 s3 cp s3://my-test-bucket/Sample_Housing_CSV_File.csv "C:\Users\rawat\Downloads\Sample_Housing_CSV_File.csv"
+download: s3://my-test-bucket/Sample_Housing_CSV_File.csv to ..\..\..\..\..\..\Downloads\Sample_Housing_CSV_File.csv

@@ -1,0 +1,251 @@
+C:\Users\rawat>aws ec2 create-vpc --cidr-block 10.0.0.0/16 --endpoint-url=%AWS_ENDPOINT_URL%
+-----------------------------------------------------------
+|                        CreateVpc                        |
++---------------------------------------------------------+
+||                          Vpc                          ||
+|+-----------------------+-------------------------------+|
+||  CidrBlock            |  10.0.0.0/16                  ||
+||  DhcpOptionsId        |  default                      ||
+||  InstanceTenancy      |  default                      ||
+||  OwnerId              |  000000000000                 ||
+||  State                |  pending                      ||
+||  VpcId                |  vpc-e57c31c086cb3ba0c        ||
+|+-----------------------+-------------------------------+|
+|||               CidrBlockAssociationSet               |||
+||+----------------+------------------------------------+||
+|||  AssociationId |  vpc-cidr-assoc-f48b6c421c5fe1c29  |||
+|||  CidrBlock     |  10.0.0.0/16                       |||
+||+----------------+------------------------------------+||
+||||                  CidrBlockState                   ||||
+|||+-------------------+-------------------------------+|||
+||||  State            |  associated                   ||||
+|||+-------------------+-------------------------------+|||
+
+C:\Users\rawat>aws ec2 create-subnet --vpc-id vpc-e57c31c086cb3ba0c --cidr-block 10.0.1.0/24 --endpoint-url=%AWS_ENDPOINT_URL%
+---------------------------------------------------------------------------------------------------------
+|                                             CreateSubnet                                              |
++-------------------------------------------------------------------------------------------------------+
+||                                               Subnet                                                ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1a                                                          ||
+||  AvailabilityZoneId          |  use1-az6                                                            ||
+||  AvailableIpAddressCount     |  251                                                                 ||
+||  CidrBlock                   |  10.0.1.0/24                                                         ||
+||  DefaultForAz                |  False                                                               ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  False                                                               ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  pending                                                             ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-13df13c5c1296a641  ||
+||  SubnetId                    |  subnet-13df13c5c1296a641                                            ||
+||  VpcId                       |  vpc-e57c31c086cb3ba0c                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+
+C:\Users\rawat>aws ec2 create-internet-gateway --endpoint-url=%AWS_ENDPOINT_URL%
+---------------------------------------------
+|           CreateInternetGateway           |
++-------------------------------------------+
+||             InternetGateway             ||
+|+------------------------+----------------+|
+||    InternetGatewayId   |    OwnerId     ||
+|+------------------------+----------------+|
+||  igw-095e7ce5a8f8472d1 |  000000000000  ||
+|+------------------------+----------------+|
+
+C:\Users\rawat>aws ec2 attach-internet-gateway --internet-gateway-id igw-095e7ce5a8f8472d1 --vpc-id vpc-e57c31c086cb3ba0c --endpoint-url=%AWS_ENDPOINT_URL%
+
+C:\Users\rawat>aws ec2 create-route-table --vpc-id vpc-e57c31c086cb3ba0c --endpoint-url=%AWS_ENDPOINT_URL%
+----------------------------------------------------------------------
+|                          CreateRouteTable                          |
++--------------------------------------------------------------------+
+||                            RouteTable                            ||
+|+--------------+-------------------------+-------------------------+|
+||    OwnerId   |      RouteTableId       |          VpcId          ||
+|+--------------+-------------------------+-------------------------+|
+||  000000000000|  rtb-b16c035cb996d1c2a  |  vpc-e57c31c086cb3ba0c  ||
+|+--------------+-------------------------+-------------------------+|
+|||                             Routes                             |||
+||+--------------------------------+-----------------+-------------+||
+|||      DestinationCidrBlock      |    GatewayId    |    State    |||
+||+--------------------------------+-----------------+-------------+||
+|||  10.0.0.0/16                   |  local          |  active     |||
+||+--------------------------------+-----------------+-------------+||
+
+C:\Users\rawat>aws ec2 create-route --route-table-id rtb-b16c035cb996d1c2a --destination-cidr-block 0.0.0.0/0 --gateway-id igw-095e7ce5a8f8472d1 --endpoint-url=%AWS_ENDPOINT_URL%
+--------------------
+|    CreateRoute   |
++---------+--------+
+|  Return |  True  |
++---------+--------+
+
+C:\Users\rawat>aws ec2 associate-route-table --route-table-id rtb-b16c035cb996d1c2a --subnet-id subnet-13df13c5c1296a641 --endpoint-url=%AWS_ENDPOINT_URL%
+-------------------------------------------------
+|              AssociateRouteTable              |
++----------------+------------------------------+
+|  AssociationId |  rtbassoc-7cb7be591b1bd9da6  |
++----------------+------------------------------+
+
+C:\Users\rawat>aws ec2 describe-vpcs --endpoint-url=%AWS_ENDPOINT_URL%
+-----------------------------------------------------------
+|                      DescribeVpcs                       |
++---------------------------------------------------------+
+||                         Vpcs                          ||
+|+-----------------------+-------------------------------+|
+||  CidrBlock            |  172.31.0.0/16                ||
+||  DhcpOptionsId        |  default                      ||
+||  InstanceTenancy      |  default                      ||
+||  IsDefault            |  True                         ||
+||  OwnerId              |  000000000000                 ||
+||  State                |  available                    ||
+||  VpcId                |  vpc-71f925ef3211ce7cf        ||
+|+-----------------------+-------------------------------+|
+|||               CidrBlockAssociationSet               |||
+||+----------------+------------------------------------+||
+|||  AssociationId |  vpc-cidr-assoc-3d970697469f6cd5f  |||
+|||  CidrBlock     |  172.31.0.0/16                     |||
+||+----------------+------------------------------------+||
+||||                  CidrBlockState                   ||||
+|||+-------------------+-------------------------------+|||
+||||  State            |  associated                   ||||
+|||+-------------------+-------------------------------+|||
+||                         Vpcs                          ||
+|+-----------------------+-------------------------------+|
+||  CidrBlock            |  10.0.0.0/16                  ||
+||  DhcpOptionsId        |  default                      ||
+||  InstanceTenancy      |  default                      ||
+||  IsDefault            |  False                        ||
+||  OwnerId              |  000000000000                 ||
+||  State                |  available                    ||
+||  VpcId                |  vpc-e57c31c086cb3ba0c        ||
+|+-----------------------+-------------------------------+|
+|||               CidrBlockAssociationSet               |||
+||+----------------+------------------------------------+||
+|||  AssociationId |  vpc-cidr-assoc-f48b6c421c5fe1c29  |||
+|||  CidrBlock     |  10.0.0.0/16                       |||
+||+----------------+------------------------------------+||
+||||                  CidrBlockState                   ||||
+|||+-------------------+-------------------------------+|||
+||||  State            |  associated                   ||||
+|||+-------------------+-------------------------------+|||
+
+C:\Users\rawat>aws ec2 describe-subnets --endpoint-url=%AWS_ENDPOINT_URL%
+---------------------------------------------------------------------------------------------------------
+|                                            DescribeSubnets                                            |
++-------------------------------------------------------------------------------------------------------+
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1a                                                          ||
+||  AvailabilityZoneId          |  use1-az6                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.0.0/20                                                       ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-0e07399449d53791e  ||
+||  SubnetId                    |  subnet-0e07399449d53791e                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1a                                                          ||
+||  AvailabilityZoneId          |  use1-az6                                                            ||
+||  AvailableIpAddressCount     |  251                                                                 ||
+||  CidrBlock                   |  10.0.1.0/24                                                         ||
+||  DefaultForAz                |  False                                                               ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  False                                                               ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-13df13c5c1296a641  ||
+||  SubnetId                    |  subnet-13df13c5c1296a641                                            ||
+||  VpcId                       |  vpc-e57c31c086cb3ba0c                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+|||                                   PrivateDnsNameOptionsOnLaunch                                   |||
+||+----------------------------------------------------------+----------------------------------------+||
+|||  HostnameType                                            |  ip-name                               |||
+||+----------------------------------------------------------+----------------------------------------+||
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1b                                                          ||
+||  AvailabilityZoneId          |  use1-az1                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.16.0/20                                                      ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-d8eb907ffebef3641  ||
+||  SubnetId                    |  subnet-d8eb907ffebef3641                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1c                                                          ||
+||  AvailabilityZoneId          |  use1-az2                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.32.0/20                                                      ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-a32b1ba5a483c903d  ||
+||  SubnetId                    |  subnet-a32b1ba5a483c903d                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1d                                                          ||
+||  AvailabilityZoneId          |  use1-az4                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.48.0/20                                                      ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-9f39d24e6321e0cda  ||
+||  SubnetId                    |  subnet-9f39d24e6321e0cda                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1e                                                          ||
+||  AvailabilityZoneId          |  use1-az3                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.64.0/20                                                      ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-d6c637c0f9c161f4d  ||
+||  SubnetId                    |  subnet-d6c637c0f9c161f4d                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||                                               Subnets                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                               ||
+||  AvailabilityZone            |  us-east-1f                                                          ||
+||  AvailabilityZoneId          |  use1-az5                                                            ||
+||  AvailableIpAddressCount     |  4091                                                                ||
+||  CidrBlock                   |  172.31.80.0/20                                                      ||
+||  DefaultForAz                |  True                                                                ||
+||  Ipv6Native                  |  False                                                               ||
+||  MapPublicIpOnLaunch         |  True                                                                ||
+||  OwnerId                     |  000000000000                                                        ||
+||  State                       |  available                                                           ||
+||  SubnetArn                   |  arn:aws:ec2:us-east-1:000000000000:subnet/subnet-22acd636d9ff0014e  ||
+||  SubnetId                    |  subnet-22acd636d9ff0014e                                            ||
+||  VpcId                       |  vpc-71f925ef3211ce7cf                                               ||
+|+------------------------------+----------------------------------------------------------------------+|
