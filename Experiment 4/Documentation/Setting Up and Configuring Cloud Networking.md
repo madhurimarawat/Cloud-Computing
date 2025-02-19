@@ -242,3 +242,6 @@ aws ec2 describe-subnets --endpoint-url=%AWS_ENDPOINT_URL%
 
 5. **[Medium - AWS VPC: Virtual Private Cloud](https://medium.com/@deepeshjaiswal6734/aws-vpc-virtual-private-cloud-965b7c82110d)**  
    A beginner-friendly article that explains the fundamental concepts of AWS VPC, its components, and how to leverage VPC for secure cloud networking.
+
+6. **[Dev.to - A Beginner's Guide to AWS Virtual Private Cloud (VPC) Security](https://dev.to/aws-builders/a-beginners-guide-to-aws-virtual-private-cloud-vpc-security-ca7)**  
+   This beginner-friendly guide introduces AWS VPC and focuses on its security features. It explains the importance of securing VPCs in cloud environments and provides practical tips for setting up secure VPC architectures on AWS.
