@@ -58,11 +58,15 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
     <img src="https://img.shields.io/github/last-commit/madhurimarawat/Cloud-Computing?color=%23A8D5BA&label=Last%20Commit&labelColor=%23A1CBB4&style=for-the-badge&logo=github" alt="Last Commit">
   </a>
 
-  <!-- Repository Age -->
-  <a href="https://github.com/madhurimarawat/Cloud-Computing">
-  <img src="https://img.shields.io/badge/Repo%20Age-1%20Month-%23A8D5BA?style=for-the-badge&logo=github" alt="Repository Age">
+<!-- Repository Age -->
+<a href="https://github.com/madhurimarawat/Cloud-Computing">
+  <img src="https://img.shields.io/badge/Repo%20Age-0Y 6M 15D-%23A8D5BA?style=for-the-badgehttps://img.shields.io/badge/Repo%20Age-PLACEHOLDER-%23FFA07Alogo=github?style=for-the-badge&logo=github" alt="Repository Age">
 </a>
 
+<!-- Workflow Status -->
+<a href="https://github.com/madhurimarawat/Cloud-Computing/actions/workflows/update-repo-age.yml">
+  <img src="https://img.shields.io/github/actions/workflow/status/madhurimarawat/Cloud-Computing/update-repo-info.yml?color=%2372DDF7&label=Workflow&labelColor=%235CC1E7&style=for-the-badge&logo=github" alt="Workflow Status">
+</a>
   <!-- Watchers -->
   <a href="https://github.com/madhurimarawat/Cloud-Computing/watchers">
     <img src="https://img.shields.io/github/watchers/madhurimarawat/Cloud-Computing?color=%23FFD6A5&label=Watchers&labelColor=%23F9C294&style=for-the-badge&logo=github" alt="GitHub Watchers">
