@@ -165,28 +165,34 @@ Cloud-Computing/
 
 ## Table Of Contents 📔 🔖 📑
 
-### 1. [Setting Up a Virtual Machine in a Cloud Environment](https://github.com/madhurimarawat/Cloud-Computing/tree/main/Experiment%201)
+### 1. [Setting Up a Virtual Machine in a Cloud Environment](Experiment%201)
 
 In this experiment, students will learn to understand the basics of cloud 
 computing by setting up and configuring a virtual machine on a cloud platform 
 such as AWS, Google Cloud, or Microsoft Azure or localstack. 
 
-### 2. [Deploying a Web Application on a Cloud Server](https://github.com/madhurimarawat/Cloud-Computing/tree/main/Experiment%202)
+### 2. [Deploying a Web Application on a Cloud Server](Experiment%202)
 
 This experiment enables students to deploy a basic web application on a cloud 
 server using services like AWS EC2, where they will practice deploying 
 applications on the cloud infrastructure. 
 
-### 3. [Working with Cloud Storage Services](https://github.com/madhurimarawat/Cloud-Computing/tree/main/Experiment%203)
+### 3. [Working with Cloud Storage Services](Experiment%203)
 
 This experiment sets up an AWS S3 bucket to upload, verify, and download data. 
 It demonstrates secure and scalable cloud storage management. 
 
-### 4. [Setting Up and Configuring Cloud Networking](https://github.com/madhurimarawat/Cloud-Computing/tree/main/Experiment%204)
+### 4. [Setting Up and Configuring Cloud Networking](Experiment%204)
 
 This experiment focuses on configuring and managing cloud networking services, such 
 as creating Virtual Private Clouds (VPCs) and subnets. It involves using cloud platforms like 
 AWS, Google Cloud, or Azure to set up and manage cloud networking environments. 
+
+### 5. [Using Cloud Functions for Serverless Computing](Experiment%205)
+
+In this experiment AWS Lambda deployment, execution, and testing are done using AWS 
+CLI and LocalStack. The runtime image is pulled from Amazon ECR via Docker. This 
+simulates a serverless environment for function invocation and validation. 
 
 ---
 
