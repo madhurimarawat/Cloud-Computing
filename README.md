@@ -60,7 +60,7 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
 
 <!-- Repository Age -->
 <a href="https://github.com/madhurimarawat/Cloud-Computing">
-  <img src="https://img.shields.io/badge/Repo%20Age-0Y 6M 15D-%23A8D5BA?style=for-the-badgehttps://img.shields.io/badge/Repo%20Age-PLACEHOLDER-%23FFA07Alogo=github?style=for-the-badge&logo=github" alt="Repository Age">
+  <img src="https://img.shields.io/badge/Repo%20Age-${REPO_AGE:-0Y 1M 5D}-%23A8D5BA?style=for-the-badge&logo=github" alt="Repository Age">
 </a>
 
 <!-- Workflow Status -->
