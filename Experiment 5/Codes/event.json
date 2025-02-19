@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Event Payload for AWS Lambda Function",
+    "parameters": {
+      "name": "The name of the user, used for a personalized greeting.",
+      "number": "A numerical value that will be doubled as part of the function's logic."
+    },
+    "usage": "Invoke with AWS CLI using: aws --endpoint-url=http://localhost:4566 lambda invoke --function-name myLambdaFunction --payload file://event.json output.txt"
+  },
+  "name": "Madhurima",
+  "number": 30
+}
