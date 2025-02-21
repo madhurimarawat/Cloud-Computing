@@ -24,7 +24,7 @@ A **virtual machine (VM)** is a software-based emulation of a physical computer 
 <br>
 
 <p align="center">
-<img src="https://res.cloudinary.com/lwgatsby/f_auto/www/uploads/2020/08/vm2.png" height="300px"></p>
+<img src="https://res.cloudinary.com/lwgatsby/f_auto/www/uploads/2020/08/vm2.png" height="250px"></p>
 
 ---
 
@@ -254,10 +254,10 @@ When encountering the error `Failed to connect to localhost port 4566`, it typic
 
 ### **Limitations in LocalStack**
 
-- LocalStack provides a basic simulation of AWS EC2 but does not support actual VM provisioning.
-- For working with real VMs locally, users should consider using hypervisors such as **VirtualBox**, **VMware**, or combining LocalStack with these tools for a hybrid setup.
+- LocalStack should be considered a basic simulation of AWS EC2, as it does not support actual VM provisioning.
+- For working with real VMs locally, hypervisors such as **VirtualBox** or **VMware** should be used, or LocalStack should be integrated with these tools for a hybrid setup.
 
-This setup is ideal for students looking to interact with a simulated cloud environment, allowing them to practice API calls and configurations without incurring any cloud service costs.
+This setup should be considered suitable for testing and development in a simulated cloud environment, allowing API interactions and configuration testing without incurring cloud service costs.
 
 ---
 
@@ -267,22 +267,30 @@ This setup is ideal for students looking to interact with a simulated cloud envi
 
 ```bash
 C:\Windows\System32>pip install localstack
-WARNING: Ignoring invalid distribution -treamlit (c:\users\rawat\appdata\local\programs\python\python310\lib\site-packages)
+WARNING: Ignoring invalid distribution -treamlit (c:\users\rawat\
+appdata\local\programs\python\python310\lib\
+site-packages)
 Collecting localstack
   Using cached localstack-4.0.3.tar.gz (5.7 kB)
   Installing build dependencies ... done
   Getting requirements to build wheel ... done
   Preparing metadata (pyproject.toml) ... done
 Collecting localstack-core (from localstack)
-  Using cached localstack_core-4.0.3-py3-none-any.whl.metadata (5.4 kB)
+  Using cached localstack_core-4.0.3-py3-none-any.whl.
+  metadata (5.4 kB)
 Collecting localstack-ext==4.0.3 (from localstack)
   Using cached localstack_ext-4.0.3.tar.gz (6.2 MB)
-ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory:
-'C:\\Users\\rawat\\AppData\\Local\\Temp\\pip-install-q450br39\\localstack-ext_771d2730449b461b8323becea
-3af2ce5\\localstack/pro/core/services/lambda_/invocation/endpoint_injection/java/SdkV2DisableCertificateValidation/
+ERROR: Could not install packages due to an OSError:
+[Errno 2] No such file or directory:
+'C:\\Users\\rawat\\AppData\\Local\\Temp\\pip-install-
+q450br39\\localstack-ext_771d2730449b461b8323becea
+3af2ce5\\localstack/pro/core/services/lambda_/invocation
+/endpoint_injection/java/SdkV2DisableCertificateValidation/
 src/main/java/cloud/localstack/HttpClientTransformer.java'
-HINT: This error might have occurred since this system does not have Windows Long Path support enabled.
-You can find information on how to enable this at https://pip.pypa.io/warnings/enable-long-paths
+HINT: This error might have occurred since this system does
+not have Windows Long Path support enabled.
+You can find information on how to enable this at
+https://pip.pypa.io/warnings/enable-long-paths
 ```
 
 The error indicates that **Windows Long Path Support** is not enabled, which is necessary because some files in the `localstack` installation exceed the default path length limit of 260 characters on Windows.
@@ -569,7 +577,8 @@ Pulling container image localstack/localstack
   ```
 - If the pull succeeds, proceed to rerun the LocalStack command:
   ```cmd
-  python "C:\Users\rawat\AppData\Local\Programs\Python\Python310\Scripts\\localstack" start
+  python "C:\Users\rawat\AppData\Local\Programs\Python\Python310\Scripts
+  \\localstack" start
   ```
 
 After successfully pulling the image, run the following to verify:
@@ -600,7 +609,8 @@ If issues persist after pulling `hello-world`, follow these steps:
    Use the AWS CLI to generate a key pair:
 
    ```bash
-   aws ec2 create-key-pair --key-name local-key --endpoint-url=%AWS_ENDPOINT_URL%
+   aws ec2 create-key-pair --key-name local-key
+   --endpoint-url=%AWS_ENDPOINT_URL%
    ```
 
    The output will include the generated public/private key pair.
@@ -610,7 +620,9 @@ If issues persist after pulling `hello-world`, follow these steps:
    Create a security group to define network rules:
 
    ```bash
-   aws ec2 create-security-group --group-name local-sg --description "Local Security Group" --endpoint-url=%AWS_ENDPOINT_URL%
+   aws ec2 create-security-group --group-name local-sg
+   --description "Local Security Group"
+   --endpoint-url=%AWS_ENDPOINT_URL%
    ```
 
 4. **Run an Instance**:
@@ -637,7 +649,10 @@ If issues persist after pulling `hello-world`, follow these steps:
 ### Command:
 
 ```cmd
-aws ec2 run-instances --image-id ami-a2678d778fc6 --count 1 --instance-type t2.micro --key-name local-key --security-group-ids sg-2cd410ccd533c7f8b --endpoint-url=%AWS_ENDPOINT_URL%
+aws ec2 run-instances --image-id ami-a2678d778fc6 --count 1
+--instance-type t2.micro --key-name local-key
+--security-group-ids sg-2cd410ccd533c7f8b
+--endpoint-url=%AWS_ENDPOINT_URL%
 ```
 
 ---
