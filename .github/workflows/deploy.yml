@@ -1,25 +1,30 @@
-name: Deploy to LocalStack S3
+name: Deploy to LocalStack S3  # Name of the workflow
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # This makes the workflow run ONLY when manually triggered
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Uses the latest Ubuntu runner in GitHub Actions
+
     steps:
-      - name: Checkout repository
+      - name: Checkout repository  # Pulls the repository code into the GitHub Actions runner
         uses: actions/checkout@v4
 
-      - name: Install AWS CLI
-        run: |
-          sudo apt update
-          sudo apt install -y awscli
+      # - name: Install AWS CLI  # Installs AWS CLI to allow S3 operations
+      #   run: |
+      #     sudo apt update
+      #     sudo apt install -y awscli
 
-      - name: Zip the code
-        run: zip -r my-code.zip ./*
+      # - name: Zip the code  # Creates a ZIP archive of the entire repository
+      #   run: zip -r my-code.zip ./*
 
-      - name: Upload to LocalStack S3
-        run: |
-          aws --endpoint-url=http://localhost:4566 s3 cp my-code.zip s3://my-ci-cd-artifacts/
+      # - name: Upload to LocalStack S3  # Attempts to upload the ZIP file to a LocalStack S3 bucket
+      #   run: |
+      #     aws --endpoint-url=http://localhost:4566 s3 cp my-code.zip s3://my-ci-cd-artifacts/
+      #   # NOTE: This will NOT work unless LocalStack is running on the same machine.
+      #   # Since GitHub Actions runs on cloud-hosted VMs, it CANNOT access LocalStack running on your local machine.
+      #   # This step is here for demonstration purposes only.
+
+      - name: Print success message  # Prints a success message
+        run: echo "Successfully run!"
