@@ -1,0 +1,25 @@
+name: Deploy to LocalStack S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt update
+          sudo apt install -y awscli
+
+      - name: Zip the code
+        run: zip -r my-code.zip ./*
+
+      - name: Upload to LocalStack S3
+        run: |
+          aws --endpoint-url=http://localhost:4566 s3 cp my-code.zip s3://my-ci-cd-artifacts/
