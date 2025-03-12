@@ -1,0 +1,113 @@
+C:\Users\rawat>aws rds create-db-instance --db-instance-identifier mydb --db-instance-class db.t3.micro --engine mysql --master-username admin --master-user-password password --allocated-storage 20 --endpoint-url=http://localhost:4566
+
+Could not connect to the endpoint URL: "http://localhost:4566/"
+
+C:\Users\rawat>aws rds create-db-instance --db-instance-identifier mydb --db-instance-class db.t3.micro --engine mysql --master-username admin --master-user-password password --allocated-storage 20 --endpoint-url=http://localhost:4566
+
+An error occurred (InternalFailure) when calling the CreateDBInstance operation: API for service 'rds' not yet implemented or pro feature - please check https://docs.localstack.cloud/references/coverage/ for further information
+
+C:\Users\rawat>docker start my-postgres
+Error response from daemon: No such container: my-postgres
+Error: failed to start containers: my-postgres
+
+C:\Users\rawat>docker start postgres
+Error response from daemon: No such container: postgres
+Error: failed to start containers: postgres
+
+C:\Users\rawat>docker images
+REPOSITORY                     TAG        IMAGE ID       CREATED        SIZE
+my-flask-app                   latest     f5feae0ac7a4   6 hours ago    139MB
+<none>                         <none>     6e4cbd50721d   6 hours ago    139MB
+<none>                         <none>     3a669f02efff   7 hours ago    139MB
+flask-app                      latest     ae4054c49614   7 hours ago    139MB
+codes-flask-app                latest     a2c2449ed852   7 hours ago    139MB
+<none>                         <none>     21afd92a2150   7 hours ago    139MB
+<none>                         <none>     f0b49d4cdb7a   8 hours ago    137MB
+hackvortex-backend             latest     14e63c26d40b   21 hours ago   1.05GB
+postgres                       15         e45d3f5ec589   7 days ago     430MB
+nginx                          latest     b52e0b094bc0   4 weeks ago    192MB
+<none>                         <none>     44b808030263   4 weeks ago    126MB
+<none>                         <none>     063caad47b0a   4 weeks ago    126MB
+localstack/localstack          latest     b686f3948f42   6 weeks ago    1.18GB
+hello-world                    latest     74cc54e27dc4   6 weeks ago    10.1kB
+public.ecr.aws/lambda/python   3.8        348b357f1c82   7 weeks ago    575MB
+python                         3.9        9f98746e2033   3 months ago   999MB
+python                         3.9-slim   1a47c1aaa88f   3 months ago   126MB
+
+C:\Users\rawat>docker start postgres
+Error response from daemon: No such container: postgres
+Error: failed to start containers: postgres
+
+C:\Users\rawat>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS                       PORTS                                                                    NAMES
+a10c5a71f625   localstack/localstack   "docker-entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)       127.0.0.1:4510-4560->4510-4560/tcp, 127.0.0.1:4566->4566/tcp, 5678/tcp   localstack-main
+7f0fa023ac4f   3a669f02efff            "python app.py"          7 hours ago     Exited (255) 5 minutes ago   8080/tcp, 0.0.0.0:5002->5000/tcp                                         backend2
+9ff472da8892   3a669f02efff            "python app.py"          7 hours ago     Exited (255) 5 minutes ago   8080/tcp, 0.0.0.0:5001->5000/tcp                                         backend1
+f687bf804791   flask-app               "python app.py"          7 hours ago     Exited (255) 5 minutes ago   0.0.0.0:5000->5000/tcp, 8080/tcp                                         flask-app
+7731140a5489   nginx:latest            "/docker-entrypoint.…"   7 hours ago     Exited (0) 6 hours ago                                                                                nginx
+64116d518e5d   flask-app               "python app.py"          7 hours ago     Exited (0) 7 hours ago                                                                                objective_bouman
+9cab497631b1   flask-app               "python app.py"          7 hours ago     Exited (0) 7 hours ago                                                                                priceless_elbakyan
+62e8f45b89e0   21afd92a2150            "python app.py"          7 hours ago     Exited (0) 7 hours ago                                                                                affectionate_noyce
+8d10cd44939f   21afd92a2150            "python app.py"          7 hours ago     Exited (0) 7 hours ago                                                                                cool_tu
+4cfb8b4e28c9   python:3.9-slim         "python /app/app.py"     7 hours ago     Exited (2) 7 hours ago                                                                                py-load-balancer
+6c3f6fc35cc4   hackvortex-backend      "gunicorn --bind 0.0…"   21 hours ago    Up 5 minutes                 0.0.0.0:8000->8000/tcp                                                   backend_app
+dedb2d1ac081   postgres:15             "docker-entrypoint.s…"   21 hours ago    Up 5 minutes (healthy)       0.0.0.0:5432->5432/tcp                                                   postgres_db
+734668b1814f   44b808030263            "flask run --host=0.…"   4 weeks ago     Created                      0.0.0.0:5000->5000/tcp                                                   magical_rosalind
+68fbccd85e50   hello-world             "/hello"                 6 weeks ago     Exited (0) 6 weeks ago                                                                                stupefied_pare
+
+C:\Users\rawat>docker run --name my-postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=mydb -p 5432:5432 -d postgres:15
+908dcc92bb78dac5a2faed56b7229594b6252fdf755f9ae0a8b624f063b16b23
+docker: Error response from daemon: driver failed programming external connectivity on endpoint my-postgres (feae7f0fb87909bde1853a7ddefa49bb518f11250e54304f7510968f7a88cca1): Bind for 0.0.0.0:5432 failed: port is already allocated.
+
+C:\Users\rawat>docker run --name my-postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=mydb -p 5433:5432 -d postgres:15
+docker: Error response from daemon: Conflict. The container name "/my-postgres" is already in use by container "908dcc92bb78dac5a2faed56b7229594b6252fdf755f9ae0a8b624f063b16b23". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+C:\Users\rawat>docker run --name my-new-postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=mydb -p 5433:5432 -d postgres:15
+b2efdca3c6f0af6cf4154fce236f0b66b5efba0f4f9e14972c94b3e0a5afa9de
+
+C:\Users\rawat>docker ps
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS                   PORTS                                                                    NAMES
+b2efdca3c6f0   postgres:15             "docker-entrypoint.s…"   42 seconds ago   Up 41 seconds            0.0.0.0:5433->5432/tcp                                                   my-new-postgres
+a10c5a71f625   localstack/localstack   "docker-entrypoint.sh"   3 minutes ago    Up 3 minutes (healthy)   127.0.0.1:4510-4560->4510-4560/tcp, 127.0.0.1:4566->4566/tcp, 5678/tcp   localstack-main
+6c3f6fc35cc4   hackvortex-backend      "gunicorn --bind 0.0…"   21 hours ago     Up 7 minutes             0.0.0.0:8000->8000/tcp                                                   backend_app
+dedb2d1ac081   postgres:15             "docker-entrypoint.s…"   21 hours ago     Up 7 minutes (healthy)   0.0.0.0:5432->5432/tcp                                                   postgres_db
+
+C:\Users\rawat>psql -h 127.0.0.1 -p 5433 -U admin -d mydb
+'psql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\rawat>docker exec -it my-new-postgres psql -U admin -d mydb
+psql (15.12 (Debian 15.12-1.pgdg120+1))
+Type "help" for help.
+
+mydb=# CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+INSERT INTO students (name, email) VALUES
+('Alice Johnson', 'alice@example.com'),
+('Bob Smith', 'bob@example.com'),
+('Charlie Brown', 'charlie@example.com');
+CREATE TABLE
+INSERT 0 3
+mydb=# SELECT * FROM students;
+ id |     name      |        email
+----+---------------+---------------------
+  1 | Alice Johnson | alice@example.com
+  2 | Bob Smith     | bob@example.com
+  3 | Charlie Brown | charlie@example.com
+(3 rows)
+
+mydb=# UPDATE students SET email = 'bob.smith@example.com' WHERE name = 'Bob Smith';
+UPDATE 1
+mydb=# DELETE FROM students WHERE name = 'Charlie Brown';
+DELETE 1
+mydb=# SELECT * FROM students WHERE name LIKE 'A%';
+ id |     name      |       email
+----+---------------+-------------------
+  1 | Alice Johnson | alice@example.com
+(1 row)
+
+mydb=# \q

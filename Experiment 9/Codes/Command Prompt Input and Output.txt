@@ -1,0 +1,127 @@
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs create-log-group --log-group-name /my/app/logs
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs create-log-stream --log-group-name /my/app/logs --log-stream-name my-stream
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events timestamp=$(date +%s%3N),message="Test log entry"
+
+Error parsing parameter '--log-events': Expected: '=', received: '+' for input:
+{self._error_location()}
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":$(Get-Date -UFormat %s)000,\"message\":\"Test log entry\"}]"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":$(Get-Date -UFormat %s)000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>$timestamp = [int]((Get-Date -UFormat %s) * 1000)
+'$timestamp' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>$logEvents = "[{`"timestamp`":$timestamp,`"message`":`"Test log entry`"}]"
+'$logEvents' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events $logEvents
+
+Error parsing parameter '--log-events': Expected: '=', received: '$' for input:
+{self._error_location()}
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do set timestamp=%i000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>set timestamp=%s000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":%timestamp%,\"message\":\"Test log entry\"}]"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":%s000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do @set timestamp=%i000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":%timestamp%,\"message\":\"Test log entry\"}]"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":%s000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do @set timestamp=%i000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>set logEvents=[{"timestamp":%timestamp%,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "%logEvents%"
+
+Error parsing parameter '--log-events': Invalid JSON:
+[{timestamp:%s000,message:Test
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do @set timestamp=%i000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>set logEvents=[{\"timestamp\":%timestamp%,\"message\":\"Test log entry\"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "%logEvents%"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":%s000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":%i000,\"message\":\"Test log entry\"}]"
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":%s000,\"message\":\"Test log entry\"}]"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":%s000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>for /f %i in ('powershell -Command "Get-Date -UFormat %%s"') do @set timestamp=%i000
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":%timestamp%,\"message\":\"Test log entry\"}]"
+
+Error parsing parameter '--log-events': Invalid JSON: Expecting value: line 1 column 15 (char 14)
+JSON received: [{"timestamp":%s000,"message":"Test log entry"}]
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs put-log-events --log-group-name /my/app/logs --log-stream-name my-stream --log-events "[{\"timestamp\":1741348140000,\"message\":\"Test log entry\"}]"
+-----------------------------------------------------------------------------------
+|                                  PutLogEvents                                   |
++--------------------+------------------------------------------------------------+
+|  nextSequenceToken |  00000000000000000000000000000000000000000000000000000001  |
++--------------------+------------------------------------------------------------+
+||                             rejectedLogEventsInfo                             ||
+|+-------------------------------------------------------------------+-----------+|
+||  tooNewLogEventStartIndex                                         |  0        ||
+|+-------------------------------------------------------------------+-----------+|
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 cloudwatch put-metric-data --namespace "MyApp" --metric-name "CPUUsage" --value 75
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 cloudwatch list-metrics --namespace "MyApp"
+-------------------------------
+|         ListMetrics         |
++-----------------------------+
+||          Metrics          ||
+|+-------------+-------------+|
+|| MetricName  |  Namespace  ||
+|+-------------+-------------+|
+||  CPUUsage   |  MyApp      ||
+|+-------------+-------------+|
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs describe-log-groups
+-----------------------------------------------------------------------------------------
+|                                   DescribeLogGroups                                   |
++---------------------------------------------------------------------------------------+
+||                                      logGroups                                      ||
+|+-------------------+-----------------------------------------------------------------+|
+||  arn              |  arn:aws:logs:us-east-1:000000000000:log-group:/my/app/logs:*   ||
+||  creationTime     |  1741322075726                                                  ||
+||  logGroupName     |  /my/app/logs                                                   ||
+||  metricFilterCount|  0                                                              ||
+||  storedBytes      |  0                                                              ||
+|+-------------------+-----------------------------------------------------------------+|
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 9\Codes>aws --endpoint-url=http://localhost:4566 logs get-log-events --log-group-name /my/app/logs --log-stream-name my-stream
+-------------------------------------------------------------------------------------
+|                                   GetLogEvents                                    |
++--------------------+--------------------------------------------------------------+
+|  nextBackwardToken |  b/00000000000000000000000000000000000000000000000000000000  |
+|  nextForwardToken  |  f/00000000000000000000000000000000000000000000000000000000  |
++--------------------+--------------------------------------------------------------+

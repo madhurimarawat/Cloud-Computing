@@ -1,0 +1,95 @@
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam create-user --user-name test-user --endpoint-url=%AWS_ENDPOINT_URL%
+--------------------------------------------------------------
+|                         CreateUser                         |
++------------------------------------------------------------+
+||                           User                           ||
+|+------------+---------------------------------------------+|
+||  Arn       |  arn:aws:iam::000000000000:user/test-user   ||
+||  CreateDate|  2025-03-06T15:43:02.050000Z                ||
+||  Path      |  /                                          ||
+||  UserId    |  7ll7td3a2x1shy4p7x2b                       ||
+||  UserName  |  test-user                                  ||
+|+------------+---------------------------------------------+|
+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam create-role --role-name ec2-role --assume-role-policy-document file://trust-policy.json --endpoint-url=%AWS_ENDPOINT_URL%
+-------------------------------------------------------------
+|                        CreateRole                         |
++-----------------------------------------------------------+
+||                          Role                           ||
+|+------------+--------------------------------------------+|
+||  Arn       |  arn:aws:iam::000000000000:role/ec2-role   ||
+||  CreateDate|  2025-03-06T15:44:48.493000Z               ||
+||  Path      |  /                                         ||
+||  RoleId    |  AROAQAAAAAAANMF4UL4W3                     ||
+||  RoleName  |  ec2-role                                  ||
+|+------------+--------------------------------------------+|
+|||               AssumeRolePolicyDocument                |||
+||+-----------------------+-------------------------------+||
+|||  Version              |  2012-10-17                   |||
+||+-----------------------+-------------------------------+||
+||||                      Statement                      ||||
+|||+------------------+----------------------------------+|||
+||||  Action          |  sts:AssumeRole                  ||||
+||||  Effect          |  Allow                           ||||
+|||+------------------+----------------------------------+|||
+|||||                     Principal                     |||||
+||||+----------------+----------------------------------+||||
+|||||  Service       |  ec2.amazonaws.com               |||||
+||||+----------------+----------------------------------+||||
+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam attach-user-policy --user-name test-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --endpoint-url=%AWS_ENDPOINT_URL%
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam list-users --endpoint-url=%AWS_ENDPOINT_URL%
+--------------------------------------------------------------
+|                          ListUsers                         |
++------------------------------------------------------------+
+||                           Users                          ||
+|+------------+---------------------------------------------+|
+||  Arn       |  arn:aws:iam::000000000000:user/test-user   ||
+||  CreateDate|  2025-03-06T15:43:02.050000Z                ||
+||  Path      |  /                                          ||
+||  UserId    |  7ll7td3a2x1shy4p7x2b                       ||
+||  UserName  |  test-user                                  ||
+|+------------+---------------------------------------------+|
+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam list-roles --endpoint-url=%AWS_ENDPOINT_URL%
+---------------------------------------------------------------------
+|                             ListRoles                             |
++-------------------------------------------------------------------+
+||                              Roles                              ||
+|+---------------------+-------------------------------------------+|
+||  Arn                |  arn:aws:iam::000000000000:role/ec2-role  ||
+||  CreateDate         |  2025-03-06T15:44:48.493575Z              ||
+||  MaxSessionDuration |  3600                                     ||
+||  Path               |  /                                        ||
+||  RoleId             |  AROAQAAAAAAANMF4UL4W3                    ||
+||  RoleName           |  ec2-role                                 ||
+|+---------------------+-------------------------------------------+|
+|||                   AssumeRolePolicyDocument                    |||
+||+---------------------------+-----------------------------------+||
+|||  Version                  |  2012-10-17                       |||
+||+---------------------------+-----------------------------------+||
+||||                          Statement                          ||||
+|||+--------------------+----------------------------------------+|||
+||||  Action            |  sts:AssumeRole                        ||||
+||||  Effect            |  Allow                                 ||||
+|||+--------------------+----------------------------------------+|||
+|||||                         Principal                         |||||
+||||+-------------------+---------------------------------------+||||
+|||||  Service          |  ec2.amazonaws.com                    |||||
+||||+-------------------+---------------------------------------+||||
+
+
+C:\Users\rawat\Documents\8 SEMESTER\Cloud Computing\Lab\Experiment 8\Codes>aws iam list-attached-user-policies --user-name test-user --endpoint-url=%AWS_ENDPOINT_URL%
+--------------------------------------------------------------------------
+|                        ListAttachedUserPolicies                        |
++------------------------------------------------------------------------+
+||                           AttachedPolicies                           ||
+|+----------------------------------------------+-----------------------+|
+||                   PolicyArn                  |      PolicyName       ||
+|+----------------------------------------------+-----------------------+|
+||  arn:aws:iam::aws:policy/AdministratorAccess |  AdministratorAccess  ||
+|+----------------------------------------------+-----------------------+|
