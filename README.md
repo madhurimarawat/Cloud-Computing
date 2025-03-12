@@ -97,6 +97,15 @@ Boto3 is the official AWS SDK for Python, enabling developers to interact with A
 ### 5. [Flask](https://flask.palletsprojects.com/)  
 Flask is a lightweight and flexible Python web framework designed for building web applications and APIs. It follows a minimalistic approach, providing essential tools while allowing developers to add extensions as needed.
 
+### 6. [Nginx](https://nginx.org/en/)  
+Nginx is a high-performance, open-source web server and reverse proxy server. It’s designed for serving static content, load balancing, and handling high concurrency with minimal resource consumption. Nginx is widely used for improving web server scalability and security.
+
+### 7. [PostgreSQL](https://www.postgresql.org/)  
+PostgreSQL is a powerful, open-source relational database management system (RDBMS). Known for its reliability, scalability, and support for advanced data types and performance optimization features, PostgreSQL is widely used for complex applications requiring robust data integrity.
+
+### 8. [GitHub Actions](https://github.com/features/actions)  
+GitHub Actions is a powerful CI/CD (Continuous Integration and Continuous Deployment) tool integrated into GitHub. It allows developers to automate workflows directly in their repositories, enabling tasks such as testing, building, and deploying applications seamlessly.
+
 ---
 
 ## Directory Structure 📂
@@ -193,6 +202,21 @@ AWS, Google Cloud, or Azure to set up and manage cloud networking environments.
 In this experiment AWS Lambda deployment, execution, and testing are done using AWS 
 CLI and LocalStack. The runtime image is pulled from Amazon ECR via Docker. This 
 simulates a serverless environment for function invocation and validation. 
+
+### 6. [Cloud Load Balancing and Auto Scaling](Experiment%206)  
+This experiment demonstrates the configuration of cloud load balancing and auto-scaling to handle varying traffic loads efficiently. A **Flask** application is deployed to simulate load balancing scenarios in the absence of **Nginx** and **AWS Elastic Load Balancing (ELB)**.
+
+### 7. [Cloud Databases and Data Management](Experiment%207)  
+This experiment focuses on the deployment and management of cloud-based relational databases. **PostgreSQL** is containerized using **Docker** to simulate a cloud database environment. The setup covers database creation, management, and basic operations, demonstrating how to ensure data persistence and scalability in a cloud infrastructure.
+
+### 8. [Cloud Security: Identity and Access Management (IAM)](Experiment%208)  
+This experiment involves configuring cloud security through Identity and Access Management (IAM). **AWS CLI** is used to create and manage users, roles, and policies within **AWS IAM**. **Docker** is utilized to simulate isolated testing environments for validating IAM configurations and enforcing access controls on cloud resources.
+
+### 9. [Implementing Cloud Monitoring and Logging](Experiment%209)  
+This experiment focuses on monitoring and logging in a cloud environment. **AWS CloudWatch**, accessed via **AWS CLI**, is configured to collect metrics, set up alarms, and analyze logs. The monitoring system tracks resource utilization and application performance, providing insights for maintaining system reliability and troubleshooting.
+
+### 10. [Setting Up Cloud-based CI/CD Pipeline](Experiment%2010)  
+This experiment covers the setup of a cloud-based Continuous Integration and Continuous Deployment (CI/CD) pipeline. **GitHub Actions** is used to automate the processes of testing, building, and deploying applications. The CI/CD workflow integrates with cloud services, ensuring efficient, consistent, and reliable software delivery pipelines.
 
 ---
 
