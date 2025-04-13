@@ -86,16 +86,14 @@ VPCs can be used for various networking purposes to create secure, scalable arch
 - **Multi-Tier Architectures**: Separate frontend, application, and database tiers for better security.
 
 <p align="center">
-<img src="https://image.slidesharecdn.com/thefundamentalsofnetworkinginaws-vpcandconnectivityoptions-business-160504064704/95/the-fundamentals-of-networking-in-aws-vpc-and-connectivity-options-business-12-638.jpg?cb=1462344638" height="300px">
+<img src="https://tse3.mm.bing.net/th/id/OIP.kGp8-y3koDuGnfORe-9r1gHaEK?rs=1&pid=ImgDetMain" height="300px">
 </p>
 
 ---
 
-#### **🖥️ All Components of a VPC Implemented in LocalStack**
+### **🖥️ All Components of a VPC Implemented in LocalStack**
 
-LocalStack is a **local AWS cloud emulator** that allows developers to create and test AWS services, including **Virtual Private Cloud (VPC)**, on their local machines. Below is a detailed breakdown of all VPC components with **real-world scenarios** and **emojis** for better understanding.
-
----
+LocalStack is a **local AWS cloud emulator** that allows developers to create and test AWS services, including **Virtual Private Cloud (VPC)**, on their local machines.
 
 ### **🌐 1. Virtual Private Cloud (VPC)**
 
