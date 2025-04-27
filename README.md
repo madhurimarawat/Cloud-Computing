@@ -60,7 +60,11 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
 
 <!-- Repository Age -->
 <!-- Repository Age -->
+<!-- Repository Age -->
 <!-- REPO-SECTION-START -->
+<a href="https://github.com/madhurimarawat/Stock-Market-Prediction/actions/workflows/update-repo-age.yml">
+  <img src="https://img.shields.io/badge/Repo%20Age-0Y%208M%2022D-%23D3D3D3?style=for-the-badge&logo=github" alt="Repository Age">
+</a>
 <!-- REPO-SECTION-END -->
 
 <!-- Workflow Status -->
