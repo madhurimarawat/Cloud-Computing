@@ -8,10 +8,6 @@
 # ❌ The badge is no longer standalone, but part of a full markdown block.
 # ================================================================
 
-# ================================================================
-# GitHub Actions Workflow: Update Repo Age Section (Manual Only)
-# ================================================================
-
 name: Update Repo Age
 
 on:
@@ -31,7 +27,7 @@ jobs:
       - name: Get Repo Creation Date
         id: repo_info
         run: |
-          CREATION_DATE=$(curl -s https://api.github.com/repos/madhurimarawat/Stock-Market-Prediction | jq -r '.created_at' | cut -d'T' -f1)
+          CREATION_DATE=$(curl -s https://api.github.com/repos/madhurimarawat/Cloud-Computing | jq -r '.created_at' | cut -d'T' -f1)
           if [ -z "$CREATION_DATE" ] || [ "$CREATION_DATE" = "null" ]; then
             CREATION_DATE="2024-08-08"
           fi
@@ -57,8 +53,8 @@ jobs:
         run: |
           echo '<!-- Repository Age -->' > new_section.md
           echo '<!-- REPO-SECTION-START -->' >> new_section.md
-          echo '<a href="https://github.com/madhurimarawat/Stock-Market-Prediction/actions/workflows/update-repo-age.yml">' >> new_section.md
-          echo '  <img src="https://img.shields.io/badge/Repo%20Age-'${REPO_AGE// /%20}'-%23D3D3D3?style=for-the-badge&logo=github" alt="Repository Age">' >> new_section.md
+          echo '<a href="https://github.com/madhurimarawat/Cloud-Computing/actions/workflows/update-repo-age.yml">' >> new_section.md
+          echo '  <img src="https://img.shields.io/badge/Repo%20Age-'${REPO_AGE// /%20}'-%23FFA07A?style=for-the-badge&logo=github&labelColor=%235F9EA0&color=%23FA8072" alt="Repository Age">' >> new_section.md
           echo '</a>' >> new_section.md
           echo '<!-- REPO-SECTION-END -->' >> new_section.md
 
