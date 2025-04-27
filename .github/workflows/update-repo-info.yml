@@ -1,50 +1,40 @@
 # ================================================================
-#  GitHub Actions Workflow: Update Repo Age Badge
+# GitHub Actions Workflow: Update Repo Age Section (Manual Only)
 # ================================================================
-#  🔹 This workflow automatically updates the repository age badge  
-#     in the README.md file.
-#  
-#  ✅ Runs daily at midnight (00:00 UTC) to update repo age.
-#  ✅ Can be manually triggered from the GitHub Actions UI.
-#  
-#  📌 Steps:
-#  1️⃣ Fetches the repository creation date.
-#  2️⃣ Calculates the repository age (Years, Months, Days).
-#  3️⃣ Ensures a **default repo age** (today’s date) if workflow fails.
-#  4️⃣ Updates the repo age badge in the README.md.
-#  5️⃣ Commits and pushes the updated README.md file back to the repository.
-#  
-#  🚀 No personal access token (PAT) required! Uses `GITHUB_TOKEN`.
+# 🔹 This workflow updates a custom repository age section in README.md.
+#
+# ⚠️ Automatic triggers removed (manual only).
+# ✅ You can run it anytime from GitHub Actions UI.
+# ❌ The badge is no longer standalone, but part of a full markdown block.
+# ================================================================
+
+# ================================================================
+# GitHub Actions Workflow: Update Repo Age Section (Manual Only)
 # ================================================================
 
 name: Update Repo Age
 
 on:
-  schedule:
-    - cron: "0 0 * * *"  # ✅ Runs daily at midnight to update repo age
-  workflow_dispatch:       # ✅ Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   update-age:
     runs-on: ubuntu-latest
-    permissions: write-all  # ✅ Allows GitHub Actions to push changes
+    permissions: write-all
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # ✅ Uses GitHub's built-in token
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Repo Creation Date
         id: repo_info
         run: |
-          CREATION_DATE=$(curl -s https://api.github.com/repos/madhurimarawat/Cloud-Computing | jq -r '.created_at' | cut -d'T' -f1)
-          
-          # ✅ If API request fails, set today's date as default
+          CREATION_DATE=$(curl -s https://api.github.com/repos/madhurimarawat/Stock-Market-Prediction | jq -r '.created_at' | cut -d'T' -f1)
           if [ -z "$CREATION_DATE" ] || [ "$CREATION_DATE" = "null" ]; then
-            CREATION_DATE=$(date +%Y-%m-%d)  # Set today as default
+            CREATION_DATE="2024-08-08"
           fi
-
           echo "CREATION_DATE=$CREATION_DATE" >> $GITHUB_ENV
 
       - name: Calculate Repository Age
@@ -52,9 +42,8 @@ jobs:
         run: |
           START_DATE=$(date -d "$CREATION_DATE" +%s 2>/dev/null || echo "0")
           CURRENT_DATE=$(date +%s)
-
           if [ "$START_DATE" = "0" ]; then
-            REPO_AGE="0Y 0M 0D"  # ✅ Set to today if calculation fails
+            REPO_AGE="0Y 6M 15D"
           else
             AGE_DAYS=$(( (CURRENT_DATE - START_DATE) / 86400 ))
             AGE_YEARS=$(( AGE_DAYS / 365 ))
@@ -62,27 +51,34 @@ jobs:
             AGE_REMAINING_DAYS=$(( AGE_DAYS % 30 ))
             REPO_AGE="${AGE_YEARS}Y ${AGE_MONTHS}M ${AGE_REMAINING_DAYS}D"
           fi
-
           echo "REPO_AGE=$REPO_AGE" >> $GITHUB_ENV
 
-      - name: Update README.md with New Badge
+      - name: Update README.md Repo Section
         run: |
-          # Color for Repo Age Badge
-          AGE_BADGE_COLOR="%23FFA07A"  # Sunset Orange
+          echo '<!-- Repository Age -->' > new_section.md
+          echo '<!-- REPO-SECTION-START -->' >> new_section.md
+          echo '<a href="https://github.com/madhurimarawat/Stock-Market-Prediction/actions/workflows/update-repo-age.yml">' >> new_section.md
+          echo '  <img src="https://img.shields.io/badge/Repo%20Age-'${REPO_AGE// /%20}'-%23D3D3D3?style=for-the-badge&logo=github" alt="Repository Age">' >> new_section.md
+          echo '</a>' >> new_section.md
+          echo '<!-- REPO-SECTION-END -->' >> new_section.md
 
-          # ✅ Generate Badge URL with default fallback
-          AGE_BADGE_URL="https://img.shields.io/badge/Repo%20Age-${REPO_AGE:-0Y 0M 0D}-$AGE_BADGE_COLOR?style=for-the-badge&logo=github"
-
-          # ✅ Replace Badge in README
-          sed -i 's|https://img.shields.io/badge/Repo%20Age-[^?]*|'"$AGE_BADGE_URL"'|' README.md
+          awk -v block="$(cat new_section.md)" '
+            BEGIN { in_block=0 }
+            /<!-- REPO-SECTION-START -->/ {
+              print block
+              in_block=1
+              next
+            }
+            /<!-- REPO-SECTION-END -->/ { in_block=0; next }
+            in_block == 0 { print }
+          ' README.md > temp.md && mv temp.md README.md
 
       - name: Commit & Push Changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # ✅ Uses GitHub's built-in token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-
           git add README.md
-          git commit -m "Updated repository age badge (fallback: today's date)" || exit 0
+          git commit -m "🔄 Updated repo age section (manual trigger only)" || exit 0
           git push origin main
