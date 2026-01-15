@@ -59,9 +59,6 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
   </a>
 
 <!-- Repository Age -->
-<!-- Repository Age -->
-<!-- Repository Age -->
-<!-- Repository Age -->
 <!-- REPO-SECTION-START -->
 <a href="https://github.com/madhurimarawat/Cloud-Computing/actions/workflows/update-repo-age.yml">
   <img src="https://img.shields.io/badge/Repo%20Age-0Y%203M%204D-%23FFA07A?style=for-the-badge&logo=github&labelColor=%235F9EA0&color=%23FA8072" alt="Repository Age">
@@ -78,7 +75,7 @@ This repository focuses on cloud computing and demonstrates how to set up virtua
   </a>
 </p>
 
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--oJGxPKFU--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vwztvoekwz1abcc684e2.jpeg" width= "100%" height= "500px">
+<img src="https://img.freepik.com/premium-vector/cloud-computing-concept-with-people-scene-man-woman-processing-information-laptops-using-cloud-technology-data-storage-backup-vector-illustration-with-characters-flat-design-web_9209-9815.jpg" width= "100%" height= "500px">
 
 ---
 
@@ -227,5 +224,5 @@ This experiment covers the setup of a cloud-based Continuous Integration and Con
 - Drop a 🌟 if you find this repository useful.<br><br>
 - If you have any doubts or suggestions, feel free to reach me.<br><br>
 📫 How to reach me:  &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-madhurima-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/madhurima-rawat/) &nbsp; &nbsp;
-<a href ="mailto:rawatmadhurima@gmail.com"><img src="https://github.com/madhurimarawat/Machine-Learning-Using-Python/assets/105432776/b6a0873a-e961-42c0-8fbf-ab65828c961a" height=35 width=30 title="Mail Illustration" alt="Mail Illustration📫" > </a><br><br>
+<a href ="mailto:rawatmadhurima4@gmail.com"><img src="https://github.com/madhurimarawat/Machine-Learning-Using-Python/assets/105432776/b6a0873a-e961-42c0-8fbf-ab65828c961a" height=35 width=30 title="Mail Illustration" alt="Mail Illustration📫" > </a><br><br>
 - **Contribute and Discuss:** Feel free to open <a href= "https://github.com/madhurimarawat/Cloud-Computing/issues">issues 🐛</a>, submit <a href = "https://github.com/madhurimarawat/Cloud-Computing/pulls">pull requests 🛠️</a>, or start <a href = "https://github.com/madhurimarawat/Cloud-Computing/discussions">discussions 💬</a> to help improve this repository!
